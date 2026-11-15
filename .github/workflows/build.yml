@@ -3,7 +3,8 @@ name: Build EXE
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -14,11 +15,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Check files
+        run: dir
+
       - name: Compile C++
-  run: g++ kasir.cpp -o program.exe -static -static-libgcc -static-libstdc++
+        run: g++ kasir.cpp -o kasir.exe -static -static-libgcc -static-libstdc++
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
-          name: file-exe
-          path: program.exe
+          name: kasir-exe
+          path: kasir.exe
