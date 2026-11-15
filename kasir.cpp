@@ -33,4 +33,4 @@ int main() {
     cout<<"          --Terimakasih--";
     system("pause");
     return 0;
-}2
+}
